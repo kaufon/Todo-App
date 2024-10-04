@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { Task } from "../../../../core/domain/entities";
-import { listTasksUseCase } from "../../../../core/use-cases";
-import { IHttp } from "../../../../core/interfaces";
+
+import { Task } from "@core/domain";
+import { listTasksUseCase } from "@core/use-cases";
+import { IHttp } from "@core/interfaces";
 
 export class ListTasksController {
   private readonly useCase: listTasksUseCase;

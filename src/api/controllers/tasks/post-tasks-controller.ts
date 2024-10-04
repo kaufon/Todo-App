@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { Task } from "../../../../core/domain/entities";
-import { RegisterTaskUseCase } from "../../../../core/use-cases";
-import { IHttp } from "../../../../core/interfaces";
+import { Task } from "@core/domain";
+import { RegisterTaskUseCase } from "@core/use-cases";
+import { IHttp } from "@core/interfaces";
 
 type Body = {
   name: string;

@@ -1,6 +1,7 @@
-import { Task } from "../../../../core/domain/entities";
-import { IHttp } from "../../../../core/interfaces";
-import { editTaskUseCase } from "../../../../core/use-cases/task/edit-task";
+import { Task } from "@core/domain";
+import { IHttp } from "@core/interfaces";
+import { editTaskUseCase } from "@core/use-cases";
+
 type RouteParams = {
   taskID: string;
 };

@@ -1,6 +1,5 @@
+import { IHttp } from "@core/interfaces";
 import { Request, Response } from "express";
-import { IHttp } from "../../../core/interfaces";
-
 export class ExpressHttp implements IHttp{
   constructor(
     private readonly request: Request,
@@ -14,5 +13,8 @@ export class ExpressHttp implements IHttp{
   }
   getRouteParams<RouteParams>():RouteParams{
     return this.request.params as RouteParams
+  }
+  getQueryParams<QueryParams>(): QueryParams {
+      return this.request.query as QueryParams
   }
 }
