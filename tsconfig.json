@@ -24,6 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "outDir": "./dist",
+    "baseUrl": "./",
     "paths": {
       "@core/*": ["core/*"],  // Core module alias
       "@entities/*": ["core/domain/entities/*"],  // Entities alias
