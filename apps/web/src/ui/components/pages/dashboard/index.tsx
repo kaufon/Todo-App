@@ -1,10 +1,8 @@
-import {Navbar, NavbarItem} from "@nextui-org/navbar"
-export const DashboardPage = () =>{
-  return <>
-    <Navbar>
-      <NavbarItem>
-
-      </NavbarItem>
-    </Navbar>
-  </>
-}
+import {Table, TableCell, TableHeader} from "@nextui-org/table"
+export const DashboardPage = () => {
+  return (
+  <>
+    <div className="bg-red-600">OLa</div>
+    </>
+  );
+};
