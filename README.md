@@ -1,58 +1,81 @@
+# Turborepo starter
 
+This is an official starter Turborepo.
 
-## Requisitos
+## Using this example
 
-### Funcionais
+Run the following command:
 
-#### 1. Ver todas as tarefas
-- **Rota:** `GET /tarefas`
-- **Descrição:** Retorna todas as tarefas no formato JSON.
+```sh
+npx create-turbo@latest
+```
 
-#### 2. Adicionar uma nova tarefa
-- **Rota:** `POST /tarefas`
-- **Descrição:** Adiciona uma nova tarefa à lista. Cada tarefa deve conter:
-  - `id`: um identificador único (número ou string).
-  - `nome`: o nome da tarefa (string).
-  - `status`: um booleano que indica se a tarefa está concluída (false por padrão).
-- **Validação:** Verificar se já existe uma tarefa com o mesmo nome. Em caso afirmativo, retornar um erro.
+## What's inside?
 
-#### 3. Atualizar uma tarefa existente
-- **Rota:** `PUT /tarefas/:id`
-- **Descrição:** Atualiza uma tarefa existente com base no `id`, permitindo modificar o `nome` e o `status`.
-- **Validação:** Não permite a atualização de uma tarefa com um nome que já exista em outra tarefa.
+This Turborepo includes the following packages/apps:
 
-#### 4. Excluir uma tarefa
-- **Rota:** `DELETE /tarefas/:id`
-- **Descrição:** Remove uma tarefa da lista com base no `id`.
+### Apps and Packages
 
-#### 5. Filtrar tarefas por status
-- **Rota:** `GET /tarefas?status=true` ou `GET /tarefas?status=false`
-- **Descrição:** Filtra as tarefas de acordo com o status (Verdadeiro ou Falso).
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-#### 6. Criar uma interface Frontend
-- **Descrição:** Deve ser criado uma interface simples no Frontend para integrar a API de gerenciamento de tarefas. A interface deve permitir ao usuário adicionar, visualizar, atualizar e excluir tarefas.
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Não Funcional
-- **Uso Obrigatório do Express.js:** A API deve ser desenvolvida utilizando obrigatoriamente o framework Express.js.
+### Utilities
 
+This Turborepo has some additional tools already setup for you:
 
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-## Como Executar a API
+### Build
 
-Para executar o projeto, siga os passos abaixo:
+To build all apps and packages, run the following command:
 
-1. **Instalação das Dependências:**
-   - Abra o terminal na pasta do projeto.
-   - Execute o comando abaixo para instalar todas as dependências necessárias:
-     ```bash
-     npm install
-     ```
+```
+cd my-turborepo
+pnpm build
+```
 
-2. **Execução do Servidor:**
-   - Após a instalação das dependências, execute o seguinte comando para iniciar o servidor:
-     ```bash
-     npm run dev
-     ```
+### Develop
 
-3. **Acessando a API:**
-   - A API estará disponível em `http://localhost:3333/tarefas` ou na porta que você especificar no seu código. Você pode usar ferramentas como Postman ou Insomnia, ou até mesmo o navegador, para testar as rotas.
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm dev
+```
+
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
