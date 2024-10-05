@@ -1,50 +1,59 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "target": "esnext",  // Changed from es5 to esnext
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "newLine": "LF",
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",  // Changed from commonjs to esnext
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",  // Adjust based on your React version
+    "incremental": true,
+    "experimentalDecorators": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "./dist",
-    "baseUrl": "../../",
+    "baseUrl": "../../",  // Adjust as needed for your project structure
     "paths": {
       "@core/*": ["packages/core/src/*"]  // Core module alias
     },
-    "preserveConstEnums": true,
-    "removeComments": true,
     "rootDir": "../../",  // Ensure your source files are under this directory
     "sourceMap": true,
-    "strict": true,
     "strictPropertyInitialization": true,
     "suppressExcessPropertyErrors": true,
-    "target": "es2015",  // Change to your preferred ES version
     "useDefineForClassFields": true,
-    "useSourceOfTruth": true
+    "useSourceOfTruth": true,
+    "plugins": [
+      {
+        "name": "next"  // Added Next.js plugin
+      }
+    ]
   },
   "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts"
   ],
   "exclude": [
+    "node_modules",
     "**/*.spec.ts",
     "**/*.test.ts"
   ]

@@ -3,7 +3,6 @@ import e from "express";
 import { IServerApp } from "@core/interfaces";
 import { TaskRoutes } from "../routes/tasks-routes";
 import { Task } from "@core/domain";
-
 export class ExpressApp implements IServerApp {
   private app: e.Application;
   private tasks: Task[];
