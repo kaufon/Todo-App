@@ -1,13 +1,13 @@
-import { request, Request, response, Response, Router } from "express";
-import { ExpressHttp } from "../express/express-http";
-import {
-  DeleteTaskController,
-  EditTaskControler,
-  FilterByTaskStatusController,
-  ListTasksController,
-  PostTasksController,
-} from "../../api/controllers/tasks";
 import { Task } from "@core/domain";
+import { Router } from "express";
+import {
+    DeleteTaskController,
+    EditTaskControler,
+    FilterByTaskStatusController,
+    ListTasksController,
+    PostTasksController,
+} from "../../api/controllers/tasks";
+import { ExpressHttp } from "../express/express-http";
 
 export const TaskRoutes = (tasks: Task[]) => {
   const router = Router();

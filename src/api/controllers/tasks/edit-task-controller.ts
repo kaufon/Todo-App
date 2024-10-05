@@ -19,7 +19,7 @@ export class EditTaskControler {
     const { name, status } = http.getBody<Body>();
     const result = this.useCase.handle({ taskID, name, status });
     if (!result.isSucess) {
-      return http.send("Oops deu erro", 400);
+      return http.send(result.message, 400);
     }
     return http.send("Tarefa alterada com sucesso", 200);
   }
