@@ -1,9 +1,8 @@
-import e, { Router } from "express";
-import { Task } from "@core/domain";
+import e from "express";
 
-import { TaskRoutes } from "../routes/tasks-routes";
+import { Task } from "@core/domain";
 import { IServerApp } from "@core/interfaces";
-import { RegisterTaskUseCase } from "@use-cases";
+import { TaskRoutes } from "../routes/tasks-routes";
 
 export class ExpressApp implements IServerApp {
   private app: e.Application;

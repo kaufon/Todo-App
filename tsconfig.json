@@ -1,26 +1,54 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "baseUrl": "./app", 
-    "paths": {
-      "@core/*": [
-        "core/*"
-      ],
-      "@entities/*": [
-        "core/domain/entities/*"
-      ],
-      "@interfaces/*": [
-        "core/interfaces/*"
-      ],
-      "@use-cases/*": [
-        "core/use-cases/*"
-      ]
-    },
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist",
+    "paths": {
+      "@core/*": ["core/*"],  // Core module alias
+      "@entities/*": ["core/domain/entities/*"],  // Entities alias
+      "@interfaces/*": ["core/interfaces/*"],  // Interfaces alias
+      "@use-cases/*": ["core/use-cases/*"]  // Use cases alias
+    },
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "rootDir": "./",  // Ensure your source files are under this directory
+    "sourceMap": true,
     "strict": true,
-    "skipLibCheck": true
-  }
+    "strictPropertyInitialization": true,
+    "suppressExcessPropertyErrors": true,
+    "target": "es2015",  // Change to your preferred ES version
+    "useDefineForClassFields": true,
+    "useSourceOfTruth": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }
 
