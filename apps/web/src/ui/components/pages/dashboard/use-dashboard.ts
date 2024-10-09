@@ -35,9 +35,13 @@ export function useDashBoardPage() {
    async function handleRegisterFormSubmit(){
     refetch()
   } 
+  async function handleUpdateFormSubmit(){
+    refetch()
+  }
 
   const tasks = data ? data.items.map(Task.create) : [];
   return {
+    handleUpdateFormSubmit,
     tasks,
     isFetching,
     deleteTasks,

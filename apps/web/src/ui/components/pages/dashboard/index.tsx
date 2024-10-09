@@ -6,16 +6,11 @@ import { RegisterTaskForm } from "../dashboard/register-task-form/register-task-
 import { Drawer } from "../../commons/drawer";
 import { Button } from "@nextui-org/button";
 export const DashboardPage = () => {
-  const { deleteTasks, tasks, isFetching, handleRegisterFormSubmit } =
+  const { deleteTasks, handleUpdateFormSubmit, tasks, isFetching, handleRegisterFormSubmit } =
     useDashBoardPage();
   return (
     <>
       <div className="flex items-center justify-center gap-6">
-        <TaskTable
-          onDeleteTask={deleteTasks}
-          tasks={tasks}
-          isLoading={isFetching}
-        />
         <Drawer
           trigger={
             <Button variant="solid" color="primary">
@@ -33,6 +28,13 @@ export const DashboardPage = () => {
             />
           )}
         </Drawer>
+
+        <TaskTable
+          onUpdateTask={handleUpdateFormSubmit}
+          onDeleteTask={deleteTasks}
+          tasks={tasks}
+          isLoading={isFetching}
+        />
       </div>
     </>
   );
