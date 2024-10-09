@@ -49,7 +49,7 @@ Antes de começar, certifique-se de que você tem o seguinte instalado em sua m�
 Abra o seu prompt de comando (cmd) ou PowerShell e execute o seguinte comando para clonar o repositório:
 
 ```bash
-git clone https://github.com/kaufon/Todo-App
+git clone https://github.com/kaufon/Todo-App.git
 ```
 
 ### Passo 2: Navegar até o Diretório do Projeto
