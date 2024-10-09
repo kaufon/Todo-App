@@ -14,6 +14,9 @@ export const TaskService = (apiClient: IapiClient): ITaskService => {
     async registerTask(task:Task){
       return await apiClient.post('/tarefas',task.dto)
 
-    }
+    },
+    async updateTask(task:Partial<TaskDto>,taskID:string){
+      return await apiClient.put(`/tarefas/${taskID}`,task)
+  }
   };
 };
