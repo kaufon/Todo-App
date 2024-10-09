@@ -2,9 +2,13 @@ import { Task } from "@core/domain";
 import { CACHE } from "apps/web/src/constants";
 import { useApi } from "../../../hooks/use-api";
 import { useCache } from "../../../hooks/use-cache";
+import { useState } from "react";
+import { useToast } from "../../../hooks/use-toast";
 
 export function useDashBoardPage() {
   const { taskService } = useApi();
+  const { showSucess, showError } = useToast();
+
   async function fetchTasks() {
     const response = await taskService.listTask();
 
@@ -16,10 +20,23 @@ export function useDashBoardPage() {
   const { data, isFetching, refetch } = useCache({
     fetcher: fetchTasks,
     key: CACHE.task.key,
+    refreshInterval: 3000,
   });
-  const tasks = data ? data.items.map(Task.create) : []
+  async function deleteTasks(taskID: string) {
+    const response = await taskService.deleteTask(taskID);
+    if (response.isFailure) {
+      showError(response.errorMessage);
+    }
+    if (response.isSucess) {
+      showSucess("Tarefa deletada com sucesso");
+      refetch();
+    }
+  }
+
+  const tasks = data ? data.items.map(Task.create) : [];
   return {
     tasks,
     isFetching,
+    deleteTasks,
   };
 }
