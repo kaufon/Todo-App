@@ -20,4 +20,11 @@ export class Task extends Entity {
       },
     );
   }
+  get dto():TaskDto{
+    return {
+      id: this.getID,
+      name: this.name,
+      status: this.status
+    }
+  }
 }
