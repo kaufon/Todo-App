@@ -17,7 +17,10 @@
     "paths": {
       "@core/*": [
         "packages/core/src/*"
-      ] // Ensure this is correct
+      ], // Ensure this is correct
+      "@validation/*":[
+        "packages/validation/src/*"
+      ]
     }
   },
   "include": [
