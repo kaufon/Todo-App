@@ -1,23 +1,16 @@
-import { NextUIProvider } from "@nextui-org/system";
+import { Metadata } from "next";
+import { ReactNode } from "react";
+import { RootLayout } from "../ui/components/layouts";
 import "../ui/styles/globals.css";
 
-export const metadata = {
+export const metadata:Metadata = {
   title: "Todo app",
   description: "Todo app controlle",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>
-        <NextUIProvider>
-            {children}
-        </NextUIProvider>
-      </body>
-    </html>
-  );
+type LayoutProps = {
+  children: ReactNode;
+};
+export default function Layout({ children }: LayoutProps) {
+  return <RootLayout>{children}</RootLayout>;
 }
