@@ -35,22 +35,57 @@
 
 
 
-## Como Executar a API
+## Como Executar Localmente no Windows 🖥️
 
-Para executar o projeto, siga os passos abaixo:
+### Pré-requisitos
 
-1. **Instalação das Dependências:**
-   - Abra o terminal na pasta do projeto.
-   - Execute o comando abaixo para instalar todas as dependências necessárias:
-     ```bash
-     npm install
-     ```
+Antes de começar, certifique-se de que você tem o seguinte instalado em sua máquina Windows:
 
-2. **Execução do Servidor:**
-   - Após a instalação das dependências, execute o seguinte comando para iniciar o servidor:
-     ```bash
-     npm run dev
-     ```
+1. **Node.js**: Baixe e instale o Node.js a partir de [nodejs.org](https://nodejs.org/). Isso também instalará o npm (Node Package Manager).
+2. **Git**: Baixe e instale o Git a partir de [git-scm.com](https://git-scm.com/).
 
-3. **Acessando a API:**
-   - A API estará disponível em `http://localhost:3333/tarefas` ou na porta que você especificar no seu código. Você pode usar ferramentas como Postman ou Insomnia, ou até mesmo o navegador, para testar as rotas.
+### Passo 1: Clonar o Repositório
+
+Abra o seu prompt de comando (cmd) ou PowerShell e execute o seguinte comando para clonar o repositório:
+
+```bash
+git clone https://github.com/kaufon/Todo-App
+```
+
+### Passo 2: Navegar até o Diretório do Projeto
+
+Mude para o diretório do projeto:
+
+```bash
+cd Todo-App/
+```
+
+### Passo 2: Instalar Dependências
+
+Execute o seguinte comando para instalar as dependências necessárias:
+
+```bash
+npm install
+```
+
+
+### Passo 3: Executar o Projeto
+
+Após configurar as variáveis de ambiente, você pode executar o projeto usando o seguinte comando na pasta `Todo-App`:
+
+```bash
+npm run dev
+```
+
+Este comando iniciará a aplicação, e você deverá ver uma saída indicando que a aplicação cliente e servidor está em execução.
+
+### Passo 4: Acessar a Aplicação
+
+Abra seu navegador e navegue até `http://localhost:3000` para acessar a aplicação web.
+Ou abra o navegador e navegue até `http://localhost:3333` para acessar o servidor.
+
+**🚧Caso haja algum erro ao executar as dependências do projeto, rode o comando `npm install` na pasta `apps/server` e `apps/web` separadamente e tente executar o projeto novamente.🚧**
+
+<p align="center">
+  Feito com ❤️ por Kauan Fonseca 
+</p>
