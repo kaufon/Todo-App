@@ -21,7 +21,7 @@ export const NextApiClient = (cacheConfig?: CacheConfig): IapiClient => {
       params = {};
       const data = await response.json();
       if (!response.ok) {
-        throw new Error("reposta get ruim");
+        throw new Error("Não é permitido duas tarefas com mesmo nome");
       }
       return new ApiResponse<ResponseBody>({
         body: data,
@@ -37,7 +37,7 @@ export const NextApiClient = (cacheConfig?: CacheConfig): IapiClient => {
       params = {};
       const data = await reponse.json();
       if (!reponse.ok) {
-        throw new Error("resposta post ruim");
+        throw new Error("Essa tarefa ja existe!");
       }
       return new ApiResponse<ReponseBody>({
         body: data,
