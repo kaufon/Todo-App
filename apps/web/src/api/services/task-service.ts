@@ -5,7 +5,8 @@ import { PaginationResponse } from "@core/responses";
 export const TaskService = (apiClient: IapiClient): ITaskService => {
   return {
     async listTask() {
-      return await apiClient.get<PaginationResponse<TaskDto>>("/tarefas")
+
+       return  await apiClient.get<PaginationResponse<TaskDto>>("/tarefas") 
     },
   };
 };
