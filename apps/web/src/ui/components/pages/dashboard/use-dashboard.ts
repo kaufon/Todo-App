@@ -1,8 +1,7 @@
-import { useApi } from "../../hooks/use-api";
-import { TaskDto } from "@core/dto/task-dto";
-import { useCache } from "../../hooks/use-cache";
-import { CACHE } from "apps/web/src/constants";
 import { Task } from "@core/domain";
+import { CACHE } from "apps/web/src/constants";
+import { useApi } from "../../../hooks/use-api";
+import { useCache } from "../../../hooks/use-cache";
 
 export function useDashBoardPage() {
   const { taskService } = useApi();
@@ -18,7 +17,7 @@ export function useDashBoardPage() {
     fetcher: fetchTasks,
     key: CACHE.task.key,
   });
-  const tasks = data ? data : []
+  const tasks = data ? data.items.map(Task.create) : []
   return {
     tasks,
     isFetching,

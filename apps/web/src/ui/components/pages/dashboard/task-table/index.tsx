@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
+import { Tag } from "../../../commons/tag";
 
 type TaskTableProps = {
   isLoading: boolean;
@@ -17,9 +18,13 @@ type TaskTableProps = {
 export const TaskTable = ({ isLoading, tasks }: TaskTableProps) => {
   return (
     <>
-      <Table aria-label="Task Table">
+      <Table
+        aria-label="Task Table"
+        color="default"
+        className="w-1/2 h-full"
+        selectionMode="single"
+      >
         <TableHeader>
-          <TableColumn>ID</TableColumn>
           <TableColumn>Nome</TableColumn>
           <TableColumn>Status</TableColumn>
           <TableColumn>Ações</TableColumn>
@@ -32,9 +37,14 @@ export const TaskTable = ({ isLoading, tasks }: TaskTableProps) => {
         >
           {(task) => (
             <TableRow key={task.getID}>
-              <TableCell>{task.getID}</TableCell>
               <TableCell>{task.name}</TableCell>
-              <TableCell>{task.status}</TableCell>
+              <TableCell>
+                {task.status ? (
+                  <Tag type="sucess">Ativado</Tag>
+                ) : (
+                  <Tag type="danger">Desativado</Tag>
+                )}
+              </TableCell>
               <TableCell>1</TableCell>
             </TableRow>
           )}
@@ -43,4 +53,3 @@ export const TaskTable = ({ isLoading, tasks }: TaskTableProps) => {
     </>
   );
 };
-
