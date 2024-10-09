@@ -1,4 +1,5 @@
 import e from "express";
+import cors from "cors";
 
 import { IServerApp } from "@core/interfaces";
 import { TaskRoutes } from "../routes/tasks-routes";
@@ -18,6 +19,12 @@ export class ExpressApp implements IServerApp {
     });
   }
   private middleWare(): void {
+    this.app.use(
+      cors({
+        origin: "http://localhost:3000",
+      }),
+    );
+
     this.app.use(e.json());
   }
   private registerRoutes(): void {
