@@ -25,7 +25,7 @@ export class editTaskUseCase {
     }
 
     task.name = name ?? task.name
-    task.status = status ?? false;
+    task.status = status ?? task.status;
     return { isSucess: true, message: "Task alterada com sucesso" };
   }
 }
