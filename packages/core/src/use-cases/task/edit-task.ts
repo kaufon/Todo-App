@@ -13,7 +13,6 @@ export class editTaskUseCase {
     isSucess: boolean;
     message: string;
   } {
-    console.log(this.tasks);
     const task = this.tasks.find((task) => task.dto.id === taskID);
     if (!task) {
       return { isSucess: false, message: "Essa task não existe" };

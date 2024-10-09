@@ -14,7 +14,7 @@ export const DashboardPage = () => {
         <Drawer
           trigger={
             <Button variant="solid" color="primary">
-              Adicionar produto
+              Adicionar Tarefa
             </Button>
           }
         >
