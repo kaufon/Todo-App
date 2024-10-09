@@ -1,5 +1,7 @@
 import { Task } from "@core/domain";
 import {
+  Select,
+  SelectItem,
   Spinner,
   Table,
   TableBody,
@@ -24,6 +26,8 @@ type TaskTableProps = {
   onUpdateTask: VoidFunction;
 };
 
+import { useState } from "react";
+
 export const TaskTable = ({
   isLoading,
   tasks,
@@ -38,8 +42,33 @@ export const TaskTable = ({
     handleDrawerClose,
     handleUpdateTaskFormSubmit,
   } = useTaskTable({ tasks, drawerRef, onUpdateTask });
+
+  const [statusFilter, setStatusFilter] = useState<string>("all");
+
+  const filteredTasks = tasks.filter((task) => {
+    if (statusFilter === "all") return true;
+    return statusFilter === "active"
+      ? task.status === true
+      : task.status === false;
+  });
+
   return (
     <>
+      <div className="flex w-64">
+        <Select
+          defaultSelectedKeys={"all"}
+          id="status-filter"
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="  rounded-md"
+          variant="flat"
+        >
+          <SelectItem key="all">Todos</SelectItem>
+          <SelectItem key="active">Ativados</SelectItem>
+          <SelectItem key="inactive">Desativados</SelectItem>
+        </Select>
+      </div>
+
       <Table
         aria-label="Task Table"
         color="default"
@@ -52,7 +81,7 @@ export const TaskTable = ({
           <TableColumn>{null}</TableColumn>
         </TableHeader>
         <TableBody
-          items={tasks}
+          items={filteredTasks}
           isLoading={isLoading}
           loadingContent={<Spinner size="lg" />}
           emptyContent={"Nenhuma tarefa criada"}
@@ -87,6 +116,7 @@ export const TaskTable = ({
           )}
         </TableBody>
       </Table>
+
       <Drawer ref={drawerRef} trigger={null} onClose={handleDrawerClose}>
         {() =>
           taskBeingEdited && (
