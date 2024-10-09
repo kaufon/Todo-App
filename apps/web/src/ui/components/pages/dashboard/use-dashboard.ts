@@ -32,11 +32,15 @@ export function useDashBoardPage() {
       refetch();
     }
   }
+   async function handleRegisterFormSubmit(){
+    refetch()
+  } 
 
   const tasks = data ? data.items.map(Task.create) : [];
   return {
     tasks,
     isFetching,
     deleteTasks,
+    handleRegisterFormSubmit,
   };
 }
