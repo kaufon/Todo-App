@@ -1,4 +1,5 @@
 import { TaskDto } from "@core/dto/task-dto";
+import {Task} from "@core/domain"
 import { IapiClient, ITaskService } from "@core/interfaces";
 import { PaginationResponse } from "@core/responses";
 
@@ -10,5 +11,9 @@ export const TaskService = (apiClient: IapiClient): ITaskService => {
     async deleteTask(taskID: string) {
       return await apiClient.delete(`/tarefas/${taskID}`);
     },
+    async registerTask(task:Task){
+      return await apiClient.post('/tarefas',task.dto)
+
+    }
   };
 };
