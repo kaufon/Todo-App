@@ -1,8 +1,12 @@
-import {Table, TableCell, TableHeader} from "@nextui-org/table"
+"use client"
+import { Table, TableCell, TableHeader } from "@nextui-org/table"
+import { useDashBoardPage } from "./use-dashboard";
+import { TaskTable } from "./task-table";
 export const DashboardPage = () => {
+  const {tasks,isFetching} = useDashBoardPage()
   return (
-  <>
-    <div className="bg-red-600">OLa</div>
+    <>
+      <TaskTable tasks={tasks} isLoading={isFetching}/>
     </>
   );
 };
